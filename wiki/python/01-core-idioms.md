@@ -143,3 +143,23 @@ f"{x=}"             # 'x=3.14159' 디버깅용 (변수명 함께 출력)
 for _ in range(3):   # 인덱스를 쓰지 않을 때 관례적으로 _ 사용
     train_one_epoch()
 ```
+
+## 10. style 
+ array access
+  y [:100]
+  y [1:5] 따위
+  y [-10:] 마지막 10
+  y[-1] 마지막
+ -- 
+ 
+ if ... 
+  pass
+  
+ and fill in code later
+
+-- 
+
+ x.append (y) --> x = x + y or x+= y 
+ # only for list and strings
+
+--
