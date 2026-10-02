@@ -1,3 +1,28 @@
+## 1. MIDI processing
+
 Midi messages have attributes that are selective and dependent on other attributes
 B field exist only if A is present kind of things
 Beware of this.
+
+
+## 2. making a wave
+
+define sampling rate: how many samples per second
+define duration (in seconds)
+sampling rate x duration  --> how many samples, n
+make a tensor that generates this: [0, ... , n -1] where n is the number of samples
+
+divide each number above by sr ...
+[0 ... 1, 1.1 ... 2, ... 3, ... duration]
+chagen this to radian by 
+
+wanted (fixed) frequency of sine wave to produce ... 
+
+
+--- 
+more flexible wave with varied frequency ... 시간에 따라 freq 변하는 상황
+
+make a tensor that shows the varied frequency:
+ like [440 442 450 440 250 ...]
+should be index by time step
+simplest varied frequency could be just another sinusoidal
