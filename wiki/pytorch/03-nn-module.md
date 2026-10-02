@@ -56,6 +56,12 @@ class Model(nn.Module):
 
 비유하면 `__init__` 은 **부품 조립**, `forward` 는 **작동 순서**입니다.
 
+in most cases, __init__ includes operations that are to be trained
+and __forward__ will use those and add untrained layers like transpose, flatten and relu.
+But for style and unknown reasons, relu or flatten could be defined in __init__
+Usually in __init__ class form is used (nn.ReLU or nn.flatten is used) and in forward, function form is used, x.flatten ... 
+둘 다 무방 --> confusing indeed
+
 > **규칙:** 학습할 파라미터가 있는 층은 반드시 `__init__` 에서 `self.xxx` 로 등록하세요. `forward` 안에서 `nn.Linear(...)` 를 새로 만들면 매번 새 가중치가 생겨 학습이 되지 않고, `model.parameters()` 에도 잡히지 않습니다.
 
 ### `model.forward(x)` 가 아니라 `model(x)` 로 호출
