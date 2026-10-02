@@ -1,0 +1,3 @@
+Midi messages have attributes that are selective and dependent on other attributes
+B field exist only if A is present kind of things
+Beware of this.
