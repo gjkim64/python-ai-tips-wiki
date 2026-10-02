@@ -92,3 +92,6 @@ loss = loss_fn(logits, labels)    # softmax 를 거치지 않은 logits 를 그�
 pred = logits.argmax(dim=1)                       # softmax 없이도 argmax 결과는 같음
 accuracy = (pred == labels).float().mean().item()
 ```
+
+## 7. Softmax 를 쓸 때에는 Neg Log Liklihood / Sigmoid 를 쓸 때에는 Cross entropy -->  개념은 사실 같다 (자세한 것은 따로 스터디)
+
