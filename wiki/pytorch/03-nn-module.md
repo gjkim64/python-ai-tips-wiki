@@ -112,3 +112,66 @@ for epoch in range(10):
     with torch.no_grad():                    # 검증 시 기울기 계산 끄기
         ...
 ```
+
+## 6. in audio related class definition 
+
+```python
+...
+self.mel = torchaudio.transform.MelSpectrogram ... # (just define the transform)
+...
+in forward method ...
+ do something like self.mel (x) ...
+```
+
+##  7. flattening layer 는 locality 살리지 못하고, global property 추출 vs. CNN or maxpooling
+Flattening can make things unnecessarily big dimensional ...
+CNN/max pooling can actually compress information to a smaller piece yet contain important local info
+
+## 8. Channels 
+
+Good example is image with 3 RGB channels
+
+it can go through a CNN layer that produces n channels 
+input is 3 channels, output 3 channels ...
+so if RGB 3 channel input ... still get 3 channel output?
+because, each filter applied to each RGB separately then summed to produce merged output 
+so three filters will produce 3 channel output
+
+<img width="658" height="385" alt="image" src="https://github.com/user-attachments/assets/41787fd3-b777-4ed3-a31d-be992b129a5c" />
+
+## 9. if you have H x W image and want to make input to CNN
+
+CNN expects C x H x W tensor (as a rule)
+if one image --> C = 1
+do an unsqueez to make H x W --> into 1 x H x W
+
+so e.g.
+Spectrogram is 80 x 456
+unsqueeze to 1 x 80 x 456
+then 64 channel output model will compress (80--> 8, and 456 --> 55) and produce
+let's say 
+64 x 8 (freq) x 55 (time)
+
+we can flatten 64 x 8 --> 512 and finally get
+
+1 x 512 x 55 ...
+flattened the freq side ... the 512 1D vector contains eight 64 bit info, first one being low freq data, to the eight being high freq data
+
+## 10. also note that CNN can expect either C x H x W or N x C x H x W, where N is number of batch ...
+
+## 11. you can also squeeze to eliminate meaningless dim when necessary
+
+e.g. 512 x 1 --> 512 
+
+## 12. Using Relu or sigmoid 
+
+<img width="631" height="247" alt="image" src="https://github.com/user-attachments/assets/6124b03d-1341-4165-8c74-ccdb436abbfa" />
+
+## 13. tanh also returns -1 ~ 1, and its center is zero ... good and bad, bad for gradient diminishing problem
+but others that have center in small positive number may explode ... 
+used much in RNN ..
+
+
+
+## 14. you might consider loading big data into memory first (load_audio) so that when get_item is called it is fast processed
+
