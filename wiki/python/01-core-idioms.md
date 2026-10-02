@@ -37,7 +37,7 @@ from functools import reduce
 nums    = [1, 2, 3, 4]
 doubled = list(map(lambda x: x * 2, nums))         # [2, 4, 6, 8]
 odds    = list(filter(lambda x: x % 2, nums))      # [1, 3]
-total   = reduce(lambda acc, x: acc + x, nums)     # 10
+total   = reduce(lambda acc, x: acc + x, nums)     # 10 reduce applies cumulatively
 ```
 
 **`map` 을 이용한 문자열 파싱 + 언패킹:**
