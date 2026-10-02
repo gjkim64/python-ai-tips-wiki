@@ -16,6 +16,13 @@ layer.bias.shape              # torch.Size([32])
 
 선형 층만 여러 개 쌓으면 결국 행렬 하나와 같아지므로, 층 사이에 `ReLU` 같은 **비선형 활성화 함수**를 넣어야 깊은 신경망이 의미를 가집니다.
 
+nn.linear is like matrix multiplication
+below is how an input of 4 x 10 is converted into 4 x 6
+to do this multiply weights of 10 x 6 (60 neurons with weights)
+
+<img width="627" height="401" alt="image" src="https://github.com/user-attachments/assets/4c301232-51e8-43df-bd57-bed32c7135dd" />
+
+
 ## 2. 모델 클래스의 형식
 
 `nn.Module` 은 모든 모델의 부모 클래스입니다.
