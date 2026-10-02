@@ -116,7 +116,16 @@ train_ds, val_ds = random_split(ds, [len(ds) - n_val, n_val],
                                 generator=torch.Generator().manual_seed(42))
 ```
 
----
+## 7. Handling multi hot code
+```python
+# label is like tensor([0, 0, 1, 0, 1, 0, ...]
+torch.where (label)[0] --> torch.where (label) access elements that are not zero, then [0] accesses the index (this is how 1D torch tensor works)
+
+```
+
+## 8. Exercise collection/set/array wise opeation rather than looped item wise operation 
+
+
 
 ### 체크리스트
 - [ ] `__getitem__` 이 `(텐서, 정수 라벨)` 을 반환하는가
