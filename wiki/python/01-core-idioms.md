@@ -80,13 +80,10 @@ merged = {**d1, **d2}          # 딕셔너리 병합
 
 | 자료구조 | 용도 | 예 |
 |----------|------|----|
-| `namedtuple` | 필드 이름이 있는 불변 튜플 | `Point = namedtuple("Point", "x y") p = Point(10, 20) 
-print(p.x)  # Output: 10` |
-| `defaultdict` | 없는 키에 기본값 자동 생성 | `from collections import defaultdict 
-groups = defaultdict(list) # 'fruits'라는 키가 없어도 에러가 나지 않습니다
-groups['fruits'].append('apple')` |
-| `Counter` | 개수 세기 | `Counter(labels).most_common(3)` |
-| `deque` | 양쪽 끝 삽입/삭제 O(1), 고정 길이 버퍼 | `deque(maxlen=100)` |
+| `namedtuple` | 필드 이름이 있는 불변 튜플 | `Point = namedtuple("Point", "x y") .. p = Point(10, 20) .. print(p.x)  # Output: 10` |
+| `defaultdict` | 없는 키에 기본값 자동 생성 | `from collections import defaultdict .. groups = defaultdict(list) # 'fruits'라는 키가 없어도 에러가 나지 않습니다 .. groups['fruits'].append('apple')` | 
+| `Counter` | 개수 세기 | `Counter(labels).most_common(3)` labels라는 데이터 집합에서 가장 자주 등장하는 상위 3개 요소와 그 빈도수를 리스트 형태로 반환하는 코드 |
+| `deque` | double ended queue 양쪽 끝 삽입/삭제 O(1), 고정 길이 버퍼 | `deque(maxlen=100)` |
 
 ## 6. 정렬 심화
 
@@ -121,7 +118,7 @@ c = copy.copy(a)       # 얕은 복사: 바깥 리스트만 새로, 안쪽 리�
 d = copy.deepcopy(a)   # 깊은 복사: 안쪽까지 전부 새로 → 완전히 독립
 
 a[0].append(99)
-# b[0] == [1, 2, 99], c[0] == [1, 2, 99], d[0] == [1, 2]
+# b[0] == [1, 2, 99], c[0] == [1, 2, 99], d[0] == [1, 2] # d was made before a changed
 ```
 
 > PyTorch 에서도 같은 함정이 있습니다. 텐서 슬라이싱(`t[0]`)이나 `view` 는 메모리를 공유하므로, 독립된 사본이 필요하면 `t.clone()` 을 쓰세요.
