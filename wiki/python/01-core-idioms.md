@@ -80,8 +80,11 @@ merged = {**d1, **d2}          # 딕셔너리 병합
 
 | 자료구조 | 용도 | 예 |
 |----------|------|----|
-| `namedtuple` | 필드 이름이 있는 불변 튜플 | `Point = namedtuple("Point", "x y") p = Point(10, 20) print(p.x)  # Output: 10 print(p.y)  # Output: 20` |
-| `defaultdict` | 없는 키에 기본값 자동 생성 | `from collections import defaultdict groups = defaultdict(list) # 'fruits'라는 키가 없어도 에러가 나지 않습니다. groups['fruits'].append('apple')` |
+| `namedtuple` | 필드 이름이 있는 불변 튜플 | `Point = namedtuple("Point", "x y") p = Point(10, 20) 
+print(p.x)  # Output: 10` |
+| `defaultdict` | 없는 키에 기본값 자동 생성 | `from collections import defaultdict 
+groups = defaultdict(list) # 'fruits'라는 키가 없어도 에러가 나지 않습니다
+groups['fruits'].append('apple')` |
 | `Counter` | 개수 세기 | `Counter(labels).most_common(3)` |
 | `deque` | 양쪽 끝 삽입/삭제 O(1), 고정 길이 버퍼 | `deque(maxlen=100)` |
 
