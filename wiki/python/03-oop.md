@@ -17,7 +17,7 @@ class Track:
 t = Track("a.wav", "jazz")
 ```
 
-> **주의:** 리스트 같은 가변 객체를 클래스 변수로 두면 모든 인스턴스가 같은 리스트를 공유합니다. 객체별 데이터는 `__init__` 에서 `self.xxx = []` 로 만드세요.
+> **주의:** 리스트 같은 가변 객체를 클래스 변수로 두면 모든 인스턴스가 같은 리스트를 공유합니다. 객체별 데이터는 `__init__` 에서 `self.xxx = []` 로 만드세요.  if you want certain list to be constant across instantiated instances perhaps use immutable object 
 
 ## 2. 캡슐화: `@property`
 
