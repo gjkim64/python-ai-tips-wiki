@@ -29,6 +29,7 @@ data = [("song1.wav", "jazz"), ("song2.wav", "rock"), ("song3.wav", "jazz")]
 entire_labels = [pair[1] for pair in data]   # 각 쌍의 두 번째 요소(index 1) → ['jazz', 'rock', 'jazz']
 ```
 
+## Filtering where we have source data list and filter info list (true/false or 0/1 indicators)
 ```
 # filtered_x = [val_x for val_x, val_y in zip(x, y) if val_y != 0]
 # x = [1, 2, 3, 4, 5]
