@@ -29,6 +29,18 @@ data = [("song1.wav", "jazz"), ("song2.wav", "rock"), ("song3.wav", "jazz")]
 entire_labels = [pair[1] for pair in data]   # 각 쌍의 두 번째 요소(index 1) → ['jazz', 'rock', 'jazz']
 ```
 
+```
+# filtered_x = [val_x for val_x, val_y in zip(x, y) if val_y != 0]
+# x = [1, 2, 3, 4, 5]
+# y = [0, 1, 0, 1, 1]
+# --> [2, 4]
+# if you do below, when y != 0 return none ... there is no way to return nothing
+filtered_vocabs = [x if y != 0 else None for x, y in zip (vocabs, testlabel)]
+# instead if you do below effectively, when y != 0 pick up x 
+filtered_vocabs = [x for x, y in zip (vocabs, testlabel) if y != 0]
+print (filtered_vocabs)
+```
+
 ## 2. lambda 와 내장 고차 함수
 
 ```python
