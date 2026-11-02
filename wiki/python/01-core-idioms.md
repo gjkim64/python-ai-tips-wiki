@@ -176,3 +176,7 @@ for _ in range(3):   # 인덱스를 쓰지 않을 때 관례적으로 _ 사용
  # only for list and strings
 
 --
+
+## 12. () 잊지 않기
+
+may times, one might forget to put the "xxx ()" ... because xxx is actually a function not a simple variable. 
