@@ -8,10 +8,8 @@ print (prob.size()) # returns torch.Size object
 
 loss = torch.tensor(0.2341, requires_grad=True)
 
-# Extract python float
 loss_value = loss.item() # only cpu tensor
 print (loss_value)
-
 
 # python objects or list / array
 
@@ -21,7 +19,7 @@ arr.dtype
 
 # numpy array
 
-same as ablve
+same as above
 
 arra = np.array ( ... ) 
 arr.shape
