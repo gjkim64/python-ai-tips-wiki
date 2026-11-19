@@ -188,3 +188,13 @@ used much in RNN ..
 
 ## 14. you might consider loading big data into memory first (load_audio) so that when get_item is called it is fast processed
 
+
+## 15. The model might be modularized depending on what you are doing
+
+In the original version, we put everything (all layer definitions) in one model class (e.g. including converting audio to spectrogram, then db-izing it and then defining the CNN layers and etc).
+We can instead define two models: one for first preprocess kind of thing - SpecModel (to convert audio to spectrogram and dbizing), then the next one for actual DL layers.
+
+
+
+
+
