@@ -194,6 +194,11 @@ used much in RNN ..
 In the original version, we put everything (all layer definitions) in one model class (e.g. including converting audio to spectrogram, then db-izing it and then defining the CNN layers and etc).
 We can instead define two models: one for first preprocess kind of thing - SpecModel (to convert audio to spectrogram and dbizing), then the next one for actual DL layers.
 
+## 16. Similarly, MTDataset could have different versions
+- one that loads audio file one at a time
+- one that loads audio files into memory as much as possible
+- ...
+In this case, we can define a mother common class and devise variant Dataset class as children subclass
 
 
 
